@@ -1,0 +1,27 @@
+{
+  "name": "supabase-rls-check",
+  "version": "0.1.0",
+  "description": "Read-only CLI that finds Supabase/Postgres tables any visitor can read or write.",
+  "type": "module",
+  "bin": {
+    "supabase-rls-check": "src/cli.ts"
+  },
+  "engines": {
+    "node": ">=23.6"
+  },
+  "scripts": {
+    "check": "node src/cli.ts",
+    "typecheck": "tsc --noEmit",
+    "test": "sh scripts/with-local-pg.sh node --test test/checks.test.ts",
+    "demo": "sh scripts/with-local-pg.sh sh -c 'node src/cli.ts --schema public'"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "pg": "^8.13.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.9.0",
+    "@types/pg": "^8.11.10",
+    "typescript": "^5.6.3"
+  }
+}
